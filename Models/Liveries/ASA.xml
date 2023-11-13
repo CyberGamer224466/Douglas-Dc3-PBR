@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <sim>
+    
+    <model>
+      <livery>
+        <name type="string">Alaska Airlines</name>
+        <texture>Liveries/2048x2048/ASA.png</texture>
+        <specular>
+          <red>   0.5 </red>
+          <green> 0.5 </green>
+          <blue>  0.5 </blue>
+        </specular>
+
+        <roughness>0.90</roughness>
+        <metalness>0.95</metalness>
+
+      </livery>
+           <livery-engine>
+        <texture>Liveries/Propeller/ASAprop.png</texture>
+        <specular>
+          <red>   0.5 </red>
+          <green> 0.5 </green>
+          <blue>  0.5 </blue>
+        </specular>
+      </livery-engine>
+    </model>
+    
+  </sim>
+  
+</PropertyList>

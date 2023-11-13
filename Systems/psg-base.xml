@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ************************************************************************
+     Douglas DC-3 C47
+     
+     January  2011 generate by helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team    : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah        : http://helijah.free.fr / http://embaranger.free.fr
+     April    2012 New version by Buckaroo : http://www.buckarooshangar.com/flightgear/index.html
+     December 2012 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+<PropertyList>
+
+  <sim>
+    
+    <model>
+      <config>
+        <show-yokes type="bool">true</show-yokes>
+        <show-pilot type="bool">true</show-pilot>
+        <show-copilot type="bool">true</show-copilot>
+        <details-high type="bool">false</details-high>
+        <light-cone type="bool">true</light-cone>
+        <version type="string">civilian-red</version>
+      </config>
+    </model>
+
+    <presets>
+      <onground type="bool">false</onground>
+      <altitude-agl-ft type="double">30</altitude-agl-ft>
+    </presets>
+
+    <!-- ############################### -->
+    <!-- ######## DUAL CONTROL ######### -->
+    <remote>
+     <pilot-callsign type="string"/>
+    </remote>
+
+    <multiplay>
+      <generic>
+      </generic>
+    </multiplay>
+    <!-- ######## DUAL CONTROL ######### -->
+    <!-- ############################### -->
+    
+    <help include="psg-help.xml"/>
+    
+    <menubar include="../Dialogs/copilot-menu.xml"/>
+    
+  </sim>
+
+  <input include="dc-3-keyboard.xml"/>
+  
+  <controls include="psg-controls.xml"/>
+
+  <engines include="psg-engines.xml"/>
+
+  <dual-control include="dual-control.xml"/>
+
+  <surface-positions>
+    <flap-pos-norm type="float"/>
+  </surface-positions>
+  
+  <nasal>
+    <doors>
+      <file>Aircraft/Douglas-Dc3/Nasal/doors.nas</file>
+    </doors>
+    <dc3>
+      <script>
+        var config_dlg = gui.Dialog.new("/sim/gui/dialogs/config/dialog", "Aircraft/Douglas-Dc3/Dialogs/config.xml");
+      </script>
+    </dc3>
+  </nasal>
+
+</PropertyList>

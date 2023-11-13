@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ************************************************************************
+     Douglas DC-3 C47
+     
+     January  2011 generate by helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team    : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah        : http://helijah.free.fr / http://embaranger.free.fr
+     April    2012 New version by Buckaroo : http://www.buckarooshangar.com/flightgear/index.html
+     December 2012 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+<PropertyList>
+
+  <sim include="copilot-views.xml">
+    
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <presets>
+      <onground type="bool">false</onground>
+      <altitude-agl-ft type="double">30</altitude-agl-ft>
+    </presets>
+
+    <!-- ############################### -->
+    <!-- ######## DUAL CONTROL ######### -->
+    <remote>
+     <pilot-callsign type="string"></pilot-callsign>
+    </remote>
+
+    <model>
+      <config>
+        <show-yokes type="bool">true</show-yokes>
+        <show-pilot type="bool">true</show-pilot>
+        <show-copilot type="bool">true</show-copilot>
+        <details-high type="bool">false</details-high>
+        <light-cone type="bool">true</light-cone>
+        <version type="string">civilian-red</version>
+      </config>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+        <!-- RESERVED FOR DUAL CONTROL (Boolean Switch)-->
+        <int   n="0"  type="int"> 0 </int>
+        <!-- RESERVED FOR DUAL CONTROL (Boolean Light Switch)-->
+        <int   n="9"  type="int"> 0 </int>
+        <float n="3"  alias="/controls/flight/elevator-trim"/>
+        <float n="4"  alias="/controls/flight/rudder-trim"/>
+        <float n="5"  alias="/controls/flight/aileron-trim"/>
+        <float n="6"  alias="/controls/engines/engine[0]/throttle"/>
+        <float n="7"  alias="/controls/engines/engine[1]/throttle"/>
+        <float n="8"  alias="/controls/engines/engine[0]/mixture"/>
+        <float n="9"  alias="/controls/engines/engine[1]/mixture"/>
+        <float n="10" alias="/controls/engines/engine[0]/propeller-pitch"/>
+        <float n="11" alias="/controls/engines/engine[1]/propeller-pitch"/>
+        <float n="12" alias="/controls/gear/brake-left"/>
+        <float n="13" alias="/controls/gear/brake-right"/>
+        <float n="14" alias="/controls/flight/elevator"/>
+        <float n="15" alias="/controls/flight/rudder"/>
+        <float n="16" alias="/controls/flight/aileron"/>
+        <!-- RESERVED FOR DUAL CONTROL (Analog Switch - TDM)-->
+        <string n="0" type="string"></string>
+      </generic>
+    </multiplay>
+    <!-- ######## DUAL CONTROL ######### -->
+    <!-- ############################### -->
+
+    <help include="copilot-help.xml"/>
+        
+    <flaps include="flaps.xml"/>
+    
+    <menubar include="../Dialogs/copilot-menu.xml"/>
+    
+  </sim>
+
+  <input include="dc-3-keyboard.xml"/>
+  
+  <controls include="copilot-controls.xml"/>
+
+  <engines include="copilot-engines.xml"/>
+
+  <surface-positions>
+    <flap-pos-norm type="float" value="0"/>
+  </surface-positions>
+  
+  <nasal>
+    <dc3>
+      <file>Aircraft/Douglas-Dc3/Nasal/dc3-copilot.nas</file>
+      <file>Aircraft/Douglas-Dc3/Nasal/interpolate.nas</file>
+      <file>Aircraft/Douglas-Dc3/Nasal/hydraulic.nas</file>
+    </dc3>
+  </nasal>
+
+</PropertyList>

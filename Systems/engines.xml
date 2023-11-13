@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <engine n="0">
+    <engine-num type="int">0</engine-num>
+    <running type="bool">false</running>
+  </engine>
+  
+  <engine n="1">
+    <engine-num type="int">1</engine-num>
+    <running type="bool">false</running>
+  </engine>
+  
+</PropertyList>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+  <name>Aircraft/Douglas-Dc3/Models/Effects/reflection</name>
+  <inherits-from>Effects/model-pbr</inherits-from>
+  <parameters>
+    <texture n="1">
+      <image>Aircraft/Douglas-Dc3/Models/normalmap.png</image>
+      <type>2d</type>
+      <filter>linear-mipmap-linear</filter>
+      <wrap-s>clamp</wrap-s>
+      <wrap-t>clamp</wrap-t>
+      <internal-format>normalized</internal-format>
+    </texture>
+    <texture n="2">
+      <image>Aircraft/Douglas-Dc3/Models/Metal012_4K-orm.png</image>
+      <type>2d</type>
+      <filter>linear-mipmap-linear</filter>
+      <wrap-s>clamp</wrap-s>
+      <wrap-t>clamp</wrap-t>
+      <internal-format>normalized</internal-format>
+    </texture>
+
+    <metallic-factor type="float"><use>sim/model/livery/roughness</use></metallic-factor>
+    <roughness-factor type="float"><use>sim/model/livery/metalness</use></roughness-factor>
+
+  </parameters>
+</PropertyList>
+

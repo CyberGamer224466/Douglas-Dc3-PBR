@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <engines>
+    <engine n="0">
+      <magnetos type="int">0</magnetos>
+      <boost type="bool">true</boost>
+      <oil-dilution type="bool">false</oil-dilution>
+      <cowl-flaps-cmd type="int">1</cowl-flaps-cmd>
+      <cowl-flaps-norm type="double">1</cowl-flaps-norm>
+      <cowl-flaps-pos type="double">1</cowl-flaps-pos>
+    </engine>
+    <engine n="1">
+      <magnetos type="int">0</magnetos>
+      <boost type="bool">true</boost>
+      <oil-dilution type="bool">false</oil-dilution>
+      <cowl-flaps-cmd type="int">1</cowl-flaps-cmd>
+      <cowl-flaps-norm type="double">1</cowl-flaps-norm>
+      <cowl-flaps-pos type="double">1</cowl-flaps-pos>
+    </engine>
+  </engines>
+  
+  <fuel>
+    <tank-gauge type="int">0</tank-gauge>
+    <left-valve type="int">0</left-valve>
+    <right-valve type="int">0</right-valve>
+    <long-range type="bool">false</long-range>
+  </fuel>
+  
+  <paratroopers>
+    <paratroopers type="float">26</paratroopers>
+    <weight type="float">3120</weight>
+  </paratroopers>
+  
+  <lighting>
+    <passing-lights type="bool">false</passing-lights>
+    <running-lights type="bool">false</running-lights>
+    <tail-lights type="bool">false</tail-lights>
+    <cabin-lights type="bool">false</cabin-lights>
+    <landing-lights n="0" type="bool">false</landing-lights>
+    <landing-lights n="1" type="bool">false</landing-lights>
+    <recognition-lights n="0" type="bool">false</recognition-lights>
+    <recognition-lights n="1" type="bool">false</recognition-lights>
+    <recognition-lights n="2" type="bool">false</recognition-lights>
+    <compass-lights type="bool">false</compass-lights>
+    <formation-lights type="bool">false</formation-lights>
+  </lighting>
+  
+  <gear>
+    <tailwheel-lock type="bool">true</tailwheel-lock>
+    <tailwheel-lock-pos type="double">1</tailwheel-lock-pos>
+    <brake-parking type="bool">true</brake-parking>
+    <brake-parking-pos type="double">1</brake-parking-pos>
+    <gear-down-cmd type="int">1</gear-down-cmd>
+    <gear-down-lock type="bool">true</gear-down-lock>
+    <gear-down-lock-pos type="double">1</gear-down-lock-pos>
+  </gear>
+  
+  <flight>
+    <flaps-cmd type="int">0</flaps-cmd>
+  </flight>
+  
+  <throttle-coupled type="bool">1</throttle-coupled>
+  <mixture-coupled type="bool">1</mixture-coupled>
+  <prop-coupled type="bool">1</prop-coupled>
+  <movement-scale>0.025</movement-scale>
+  
+</PropertyList>

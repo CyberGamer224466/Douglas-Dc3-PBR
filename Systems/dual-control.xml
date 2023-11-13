@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <pilot>
+    <controls>
+      <flight>
+        <flaps>0</flaps>
+        <elevator-trim>0</elevator-trim>
+        <aileron>0</aileron>
+        <elevator>0</elevator>
+        <rudder>0</rudder>
+      </flight>
+      <gear>
+        <brake-parking></brake-parking>
+        <brake-left></brake-left>
+        <brake-right></brake-right>
+      </gear>
+      <electric>
+        <battery-switch></battery-switch>
+      </electric>
+      <lighting>
+        <instrument-lights></instrument-lights>
+      </lighting>
+      <engines>
+        <engine n="0">
+          <throttle>0</throttle>
+          <magnetos></magnetos>
+          <mixture></mixture>
+          <propeller-pitch></propeller-pitch>
+          <starter></starter>
+        </engine>
+        <engine n="1">
+          <throttle>0</throttle>
+          <magnetos></magnetos>
+          <mixture></mixture>
+          <propeller-pitch></propeller-pitch>
+          <starter></starter>
+        </engine>
+      </engines>
+    </controls>
+  </pilot>
+  
+</PropertyList>

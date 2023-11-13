@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <title>Douglas DC-3 C47</title>
+  <line>______________________________________________</line>
+  <key>
+    <name>d</name>
+    <desc>Open/Close crew door</desc>
+  </key>
+  <key>
+    <name>D</name>
+    <desc>Open/Close passenger door</desc>
+  </key>
+  <key>
+    <name>E</name>
+    <desc>Open/Close cargo door</desc>
+  </key>
+  
+</PropertyList>

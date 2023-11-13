@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <engines>
+    <engine n="0">
+      <magnetos>0</magnetos>
+    </engine>
+    
+    <engine n="1">
+      <magnetos>0</magnetos>
+    </engine>
+  </engines>
+  
+</PropertyList>

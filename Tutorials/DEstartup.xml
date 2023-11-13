@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+
+  <name>DE-2-Startup</name>
+  <description>Mit diesem Tutorial lernen Sie wie man die Motoren der DC-3 zu starten</description>
+  
+  <init>
+    <set>
+      <property>controls/gear/tailwheel-lock</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/gear/brake-parking-pos</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine/magnetos</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine/throttle</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[0]/mixture</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[1]/mixture</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[0]/propeller-pitch</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[1]/propeller-pitch</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>engines/engine/running</property>
+      <value>false</value>
+    </set>
+    <set>
+      <property>environment/weather-scenario</property>
+      <value>Fair weather</value>
+    </set>
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/flight/aileron-trim</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/flight/rudder-trim</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>instrumentation/doors/crew/position-norm</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>instrumentation/doors/cargo/position-norm</property>
+      <value>0</value>
+    </set>
+  </init>
+
+
+  <step>
+    <message>begrussen in der DC-3, wir konnen Starten die Motoren !</message>
+  </step>
+  
+  <step>
+    <message>Zuerst legte die Parkbremse</message>  
+      <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-12</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.05</x-offset-m>
+      <y-offset-m>-0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>53</field-of-view>
+    </view>
+    <error>
+	  <message>Klicken Sie auf den roten Knopf</message>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>0</value>
+		</equals>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+  
+<!-- Sélection réservoir principal gauche-->
+  <step>
+    <message>Wahlen Sie die Haupt Left Tank (Main LH)</message>
+    <view>
+      <heading-offset-deg>-10</heading-offset-deg>
+      <pitch-offset-deg>-77</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.2</x-offset-m>
+      <y-offset-m>0.3</y-offset-m>
+      <z-offset-m>-8.18</z-offset-m>
+      <field-of-view>45</field-of-view>
+    </view>
+	<error>
+	<message>Stellen Sie den Schalter auf die Main LH Position</message>
+      <condition>
+        <less-than>
+          <property>controls/fuel/left-valve-pos</property>
+          <value>3</value>
+        </less-than>
+      </condition>
+    </error>
+    <error>
+	  <message>Stellen Sie den Schalter auf die Main LH Position</message>
+      <condition>
+        <greater-than>
+          <property>controls/fuel/left-valve-pos</property>
+          <value>3</value>
+        </greater-than>
+      </condition>
+    </error>
+    <exit> 
+      <condition>
+		<equals>
+          <property>controls/fuel/left-valve-pos</property>
+          <value>3</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+  
+<!-- sélection réservoir principal droit-->
+  <step>
+    <message>Wahlen Sie die Haupt rechts Tank (Main RH)</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-80</pitch-offset-deg>
+      <roll-offset-deg>-5</roll-offset-deg>
+      <x-offset-m>0.2</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.175</z-offset-m>
+      <field-of-view>43</field-of-view>
+    </view>
+	<error>
+	  <message>Stellen Sie den Schalter auf die Main RH Position</message>
+      <condition>
+        <less-than>
+          <property>controls/fuel/right-valve-pos</property>
+          <value>2</value>
+        </less-than>
+      </condition>
+    </error>
+    <error>
+	  <message>Stellen Sie den Schalter auf die Main RH Position</message>
+      <condition>
+        <greater-than>
+          <property>controls/fuel/right-valve-pos</property>
+          <value>2</value>
+        </greater-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/fuel/right-valve-pos</property>
+          <value>2</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+
+  
+<!-- battery master-->
+  <step>
+    <message>Aktivieren Sie die Batterie (Master Battery)</message>
+    <view>
+      <heading-offset-deg>54</heading-offset-deg>
+      <pitch-offset-deg>20</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>-0.30</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>55.0</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/electric/battery-switch-pos</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+
+<!-- boost pump-->
+  <step>
+    <message>Stellen Sie den Schalter der rechten Booster-Pumpe, um der rechten Booster-Pumpe zu starten</message>
+    <view>
+      <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/fuel/tank[1]/boost-pump-pos</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+ <!-- Mixture-->
+  <step>
+    <message>Setzen Sie den Reichtum Handle zum Auto Rich position</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-65</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0.15</x-offset-m>
+      <y-offset-m>0.3</y-offset-m>
+      <z-offset-m>-7.85</z-offset-m>
+      <field-of-view>55.0</field-of-view>
+    </view>
+    <error>
+      <message>Legen Sie die Maus auf den roten Handgriff und bewegen Sie ihn mit dem clic</message>
+      <message>Anstieg der Mischung</message>
+      <condition>
+        <less-than>
+          <property>controls/engines/engine[1]/mixture</property>
+          <value>0.55</value>
+        </less-than>
+      </condition>
+    </error>
+    <error>
+      <message>Es ist ein bisschen zu !</message>
+      <condition>
+        <greater-than>
+          <property>controls/engines/engine[1]/mixture</property>
+          <value>0.75</value>
+        </greater-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+        <and>
+          <greater-than>
+            <property>controls/engines/engine[1]/mixture</property>
+            <value>0.55</value>
+          </greater-than>
+          <less-than>
+            <property>controls/engines/engine[1]/mixture</property>
+            <value>0.75</value>
+          </less-than>
+        </and>
+      </condition>
+    </exit>
+  </step>
+
+<!-- Gaz -->
+  <step>
+    <message>Offnen Sie die Drosselklappe leicht (10%)</message>
+    <view>
+      <heading-offset-deg>-10</heading-offset-deg>
+      <pitch-offset-deg>-85</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0.05</x-offset-m>
+      <y-offset-m>0.29</y-offset-m>
+      <z-offset-m>-8.08</z-offset-m>
+      <field-of-view>60.0</field-of-view>
+    </view>
+    <error>
+      <message>leicht steigen die Drosselklappe</message>
+      <condition>
+        <less-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.02</value>
+        </less-than>
+      </condition>
+    </error>
+    <error>
+      <message>Es ist ein bisschen zu !</message>
+      <condition>
+        <greater-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.2</value>
+        </greater-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+        <and>
+          <greater-than>
+            <property>controls/engines/engine[0]/throttle</property>
+            <value>0.05</value>
+          </greater-than>
+          <less-than>
+            <property>controls/engines/engine[0]/throttle</property>
+            <value>0.15</value>
+          </less-than>
+        </and>
+      </condition>
+    </exit>
+  </step>
+
+<!-- RPM -->
+  <step>
+    <message>Propellersteigung zwischen 70% und 100%</message>
+    <view>
+      <heading-offset-deg>-10</heading-offset-deg>
+      <pitch-offset-deg>-85</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.29</y-offset-m>
+      <z-offset-m>-8.08</z-offset-m>
+      <field-of-view>60.0</field-of-view>
+    </view>
+    <error>
+      <message>Erhohen den propellersteigung</message>
+      <condition>
+        <less-than>
+          <property>controls/engines/engine[0]/propeller-pitch</property>
+          <value>0.7</value>
+        </less-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+        <and>
+          <greater-than>
+            <property>controls/engines/engine[0]/propeller-pitch</property>
+            <value>0.70</value>
+          </greater-than>
+          <less-than>
+            <property>controls/engines/engine[0]/propeller-pitch</property>
+            <value>1.1</value>
+          </less-than>
+        </and>
+      </condition>
+    </exit>
+  </step>
+
+ <!-- Magneto droit sur both-->
+  <step>
+    <message>Legen Sie die rechte Magnetzunder zu both</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0</x-offset-m>
+      <y-offset-m>0.55</y-offset-m>
+      <z-offset-m>-8.1</z-offset-m>
+      <field-of-view>55.0</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/engines/engine[1]/magnetos-pos</property>
+          <value>3</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Nun, wir uberprufen niemand nahe unserem Propeller ist</message>
+    <view>
+      <heading-offset-deg>-100</heading-offset-deg>
+      <pitch-offset-deg>-30</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.65</x-offset-m>
+      <y-offset-m>0.48</y-offset-m>
+      <z-offset-m>-7.95</z-offset-m>
+      <field-of-view>65.0</field-of-view>
+    </view>
+  </step>
+
+<!-- start droite-->
+  <step>
+    <message>Wir konnen den Motor starten, schalten Sie der rechten Starter</message>
+    <view>
+     <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+         <field-of-view>55</field-of-view>
+    </view>
+    <exit>
+      <condition>
+	    <equals>
+	      <property>engines/engine[1]/running</property>
+          <value>1</value>
+	    </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Der richtige Motor gestartet wird !</message>
+    <view>
+      <heading-offset-deg>-100</heading-offset-deg>
+      <pitch-offset-deg>-30</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.65</x-offset-m>
+      <y-offset-m>0.48</y-offset-m>
+      <z-offset-m>-7.9</z-offset-m>
+      <field-of-view>65.0</field-of-view>
+    </view>
+    <exit>
+      <condition>
+	    <equals>
+	      <property>engines/engine[1]/running</property>
+          <value>1</value>
+	    </equals>
+      </condition>
+    </exit>
+  </step>
+
+
+<!-- Arrêt boost pump-->
+  <step>
+    <message>Sie konnen jetzt stoppen die Booster-Pumpe rechts (Booster pump Right)</message>
+    <view>
+     <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/fuel/tank[1]/boost-pump-pos</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+
+<!-- Moteur Gauche -->
+
+<!-- boost pump-->
+  <step>
+    <message>Stellen Sie den Schalter der links Booster-Pumpe, um der links Booster-Pumpe zu starten</message>
+    <view>
+     <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/fuel/tank[0]/boost-pump-pos</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+ <!-- Magneto droit sur both-->
+  <step>
+    <message>Legen Sie die linkste Magnetzunder zu both</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0</x-offset-m>
+      <y-offset-m>0.55</y-offset-m>
+      <z-offset-m>-8.1</z-offset-m>
+      <field-of-view>55.0</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/engines/engine[0]/magnetos-pos</property>
+          <value>3</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <!-- Vérifications-->
+  <step>
+    <message>Wir uberprufen niemand nahe unserem Propeller ist</message>
+    <view>
+      <heading-offset-deg>95</heading-offset-deg>
+      <pitch-offset-deg>-45</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.75</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-7.9</z-offset-m>
+      <field-of-view>67.0</field-of-view>
+    </view>
+  </step>
+ 
+<!-- start gauche -->
+  <step>
+    <message>Wir konnen den Motor starten, schalten Sie der links Starter</message>
+    <view>
+     <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>engines/engine[0]/running</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Der linkstige Motor gestartet wird !</message>
+    <view>
+      <heading-offset-deg>95</heading-offset-deg>
+      <pitch-offset-deg>-45</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.75</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-7.9</z-offset-m>
+      <field-of-view>67.0</field-of-view>
+    </view>
+    <exit>
+      <condition>
+	    <equals>
+	      <property>engines/engine[0]/running</property>
+          <value>1</value>
+	    </equals>
+      </condition>
+    </exit>
+  </step>
+  
+ <!-- Arrêt boost pump-->
+  <step>
+    <message>Sie konnen jetzt stoppen die Booster-Pumpe links (Booster pump Right)</message>
+    <view>
+     <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>5</roll-offset-deg>
+      <x-offset-m>0.1</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>-8.13</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/fuel/tank[0]/boost-pump-pos</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <end>
+    <message>Gluckwunsch, wir sind nun bereit, dem Taxi zum Piste</message>
+  </end>
+</PropertyList>

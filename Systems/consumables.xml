@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <fuel>
+    <tank n="0">
+      <unusable-gal_us>5.0</unusable-gal_us>
+    </tank>
+    <tank n="1">
+      <unusable-gal_us>5.0</unusable-gal_us>
+    </tank>
+    <tank n="2">
+      <unusable-gal_us>5.0</unusable-gal_us>
+    </tank>
+    <tank n="3">
+      <unusable-gal_us>5.0</unusable-gal_us>
+    </tank>
+  </fuel>
+  
+</PropertyList>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ***************************************************************************************
+     Douglas DC-3 C47
+     
+     January  2011 generate by helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team    : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah        : http://helijah.free.fr / http://embaranger.free.fr
+     April    2012 New version by Buckaroo : http://www.buckarooshangar.com/flightgear/index.html
+     December 2012 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     Jan-...  2022 updated by Tobias Dammers : https://github.com/tdammers/Douglas-Dc3
+     ***************************************************************************************
+-->
+<PropertyList include="Systems/dc-3-base.xml">
+
+  <sim>
+
+    <description>Douglas DC-3/C-47 (YASim)</description>
+    <author>BARANGER Emmanuel (3D), PAF Team (Systems,3D), Buckaroo (FDM), Tobias Dammers (Systems,3D)</author>
+    
+    <flight-model>yasim</flight-model>
+    <aero>Systems/dc-3-yasim</aero>
+    
+    <startup>
+      <splash-texture>Aircraft/Douglas-Dc3/dc-3-splash.png</splash-texture>
+    </startup>
+    
+    <model>
+      <path>Aircraft/Douglas-Dc3/Models/dc-3.xml</path>
+      <variant type="int">0</variant>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+    
+    <sound>
+      <path>Aircraft/Douglas-Dc3/Sounds/dc-3-sound.xml</path>
+    </sound>
+
+    <hitches>
+      <!-- make sure some properties do exist, when the list for multiplayer transfer is defined-->
+      <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
+           should fix this somehow-->
+      <aerotow>
+        <tow>
+          <length type="float">60</length>
+          <elastic-constant type="float">10000</elastic-constant>
+          <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+          <dist type="float">1</dist>
+          <connected-to-property-node type="bool"></connected-to-property-node>
+          <brake-force type="float">100000</brake-force>
+          <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
+          <end-force-x type ="float">0</end-force-x>
+          <end-force-y type ="float">0</end-force-y>
+          <end-force-z type ="float">0</end-force-z>
+        </tow>
+        <speed-in-tow-direction type="float">0</speed-in-tow-direction>
+        <open type="bool">true</open>
+        <local-pos-x type="float">0</local-pos-x>
+        <local-pos-y type="float">0</local-pos-y>
+        <local-pos-z type="float">0</local-pos-z>
+        <is-slave type="bool">false</is-slave>
+      </aerotow>
+    </hitches>
+      
+  </sim>
+
+  <!-- ############################### -->
+  <!-- ######## DUAL CONTROL ######### -->
+  <nasal>
+    <dual_control_tools>
+      <file>Aircraft/Douglas-Dc3/DualControl/dual-control-tools.nas</file>
+    </dual_control_tools>
+    <aircraft_dual_control>
+      <file>Aircraft/Douglas-Dc3/DualControl/dc-3-dual-control.nas</file>
+    </aircraft_dual_control>
+    <dual_control>
+      <file>Aircraft/Douglas-Dc3/DualControl/pilot-dual-control.nas</file>
+    </dual_control>
+  </nasal>
+  <!-- ######## DUAL CONTROL ######### -->
+  <!-- ############################### -->
+  
+</PropertyList>

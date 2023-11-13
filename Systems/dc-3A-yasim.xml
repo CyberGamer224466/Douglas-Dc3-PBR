@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January  2011 generate by helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team    : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah        : http://helijah.free.fr / http://embaranger.free.fr
+     April    2012 New version by Buckaroo : http://www.buckarooshangar.com/flightgear/index.html
+     December 2012 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+
+     sources         : http://en.wikipedia.org/wiki/Douglas_DC-3
+
+     Wingspan        : 95 ft 00 in ( 29.00 m  )
+     Lenght          : 64 ft 05 in ( 19.70 m  )
+     Height          : 16 ft 11 in (  5.16 m  )
+     Empty mass      :    18300 lb (  8300 kg )
+     Engines         : 2 Pratt & Whitney Twin Wasp S1C3G (1200 each)
+     Cruise speed    :   130 kts   ( 240 km/h )
+     Maximim speed   :   206 kts   ( 381 km/h )
+
+  DC-3/C-47
+  FDM by Gary Neely "Buckaroo"
+
+  Speeds (KIAS):
+    Vs0    64 (some sources down to 58)
+    V1/V2  84
+    Va     120
+    Vno    158
+    Vne    190
+    Vf     135 (one-quarter flaps)
+    Vf     99 (half flaps)
+    Vf     97 (full flaps)
+    Vlo    126
+
+  Pilot reports suggest stalls are a somewhat hard to get into without a lot nose up trim, but could be memorable once they occur.
+  The nose pitches down and there is a significant to severe wing drop. Clean stalls aren't so bad, but full-flap, power-on stalls
+  are nasty if one muscled into them.
+
+  The Dakota should be landed on the main wheels, tail-low if desired, but not three-pointed.
+
+  Service ceiling: 24,800', 12,500' on one engine
+
+  G limits:
+    flaps up    +2.83/-0.83G
+    flaps down  +1.58/-0.44G
+
+  Max crosswind: 13 kts
+  Max tailwind when landing: 9 kts
+
+  Minimum idle RPM: ~550
+  Max RPM in Auto Lean: 2050
+  Max TO power: 1200 HP, 48" MP, 2700 RPM for 1 minute, 180 GPH
+  Normal rated (METO): 1050 HP, 41-42" MP, 2550 RPM, 157.5 GPH
+  Initial climb: 800 HP, 36" MP, 2350 RPM, 120 GPH
+  Normal climb: 700 HP, 31" MP, 2050 RPM, 105 GPH
+  Cruise: 625 HP, 31-33" MP, 2050 RPM (to 10,000'), 94 GPH
+  Fuel consumption in GPH are estimates.
+
+  Control surface max deflections (degrees):
+    flaps    45
+    ailerons 27 up/18 down
+      tabs   12.5 up/12.5 down
+    elevator 30 up/20 down
+      tab    12 up/12 down
+    rudder   30/30
+      tab    12/12
+-->
+
+<!-- Buckaroo notes:
+  Approach/cruise speeds are tweaked for flying results. Let's start approach AoA at half critical AoA and work from there.
+  Throttle and mixture are guesses. The single-speed supercharger (boost) should always be considered "on" (1.0). I leave prop
+  pitch at full fine (max RPM) for both approach and cruise as this gives more predictable solver results. In flight you'd want
+  to increase prop pitch for better economy, engine life, and reduced prop noise. I'll set mixture to about half at cruise;
+  mixture is another rather kludged YASim setting.
+
+  Tested for an economoical cruise around 155 KIAS at 4000' (167 KTAS), using 32" MP and 2050 RPM. Using METO power, tops out
+  around 176 KIAS (190 KTAS) at 4000'. Seems about right. Stalls somewhere around 55-60 kts. These numbers are slightly
+  optimistic, but this is a lightly loaded FDM with no provisions for cargo yet.
+
+  Power settings may be somewhat low on approach to fields near sea level, but these are geared, supercharged engines and have
+  a lot of power at low altitudes, the plane is not yet configured for cargo (extra weight) and I haven't done much tweaking of
+  engine settings. Note that YASim doesn't do a good job of reporting low-power MP values so low-power MP will read low without
+  developer correction.
+-->
+<airplane mass="18300" version="YASIM_VERSION_CURRENT">
+
+  <approach speed="66" aoa="6" fuel="0.2">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.4"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle" value="0.4"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/mixture" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/boost" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/boost" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+  </approach>
+
+  <cruise speed="155" alt="15000" fuel="0.5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.5"/>
+    <control-setting axis="/controls/engines/engine[1]/mixture" value="0.5"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/boost" value="1"/>
+    <control-setting axis="/controls/engines/engine[1]/boost" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+  </cruise>
+
+  <cockpit x="7.9" y="0.5" z="0.43"/>
+
+  <!-- Drag bodies -->
+  <!--  Buckaroo notes:
+    These drag bodies could be more accurately modeled using a leading cone, a cylindrical midsection, and a trailing cone,
+    however I've found that a single element for each major body gives better results in the solver, making it easier to bring
+    the Lift and Drag results closer together.
+    <fuselage ax="9.850" ay="0" az="-0.336" bx="-9.366" by="0" bz="0.064" width="2.6" taper="0.2" midpoint="0.123"/>
+  -->
+  <!-- New fuselage BARANGER Emmanuel 09 04 2016 -->
+  <!-- Noze -->
+  <fuselage ax=" 9.848" ay=" 0.000" az="-0.358" bx=" 9.677" by=" 0.000" bz="-0.358" width="0.610" taper="0.6" midpoint="1"/>
+  <!-- Left -->
+  <fuselage ax=" 9.703" ay=" 0.063" az="-0.355" bx=" 9.456" by=" 0.088" bz="-0.376" width="0.882" taper="0.6" midpoint="1"/>
+  <fuselage ax=" 9.456" ay=" 0.088" az="-0.376" bx=" 8.670" by=" 0.167" bz="-0.458" width="1.314" taper="0.7" midpoint="1"/>
+  <!-- Right -->
+  <fuselage ax=" 9.703" ay="-0.063" az="-0.355" bx=" 9.456" by="-0.088" bz="-0.376" width="0.882" taper="0.6" midpoint="1"/>
+  <fuselage ax=" 9.456" ay="-0.088" az="-0.376" bx=" 8.670" by="-0.167" bz="-0.458" width="1.314" taper="0.7" midpoint="1"/>
+  <!-- Body -->
+  <fuselage ax=" 8.729" ay=" 0.000" az="-0.319" bx=" 7.920" by=" 0.000" bz="-0.316" width="1.901" taper="0.8" midpoint="1"/>
+  <fuselage ax=" 8.200" ay=" 0.000" az="-0.322" bx=" 6.682" by=" 0.000" bz="-0.167" width="2.271" taper="0.8" midpoint="1"/>
+  <fuselage ax=" 6.826" ay=" 0.000" az="-0.167" bx=" 4.960" by=" 0.000" bz="-0.177" width="2.559" taper="0.9" midpoint="1"/>
+  <fuselage ax=" 4.960" ay=" 0.000" az="-0.177" bx="-2.021" by=" 0.000" bz="-0.214" width="2.559" taper="1.0" midpoint="1"/>
+  <fuselage ax="-2.021" ay=" 0.000" az="-0.214" bx="-9.850" by=" 0.000" bz=" 0.086" width="2.559" taper="0.1" midpoint="0"/>
+  
+  <!-- Left nacelle -->
+  <fuselage ax=" 6.879" ay=" 2.814" az="-1.194" bx=" 2.868" by=" 2.814" bz="-1.194" width="1.300" taper="0.4" midpoint="0.234"/>
+  <!-- Right nacelle-->
+  <fuselage ax=" 6.879" ay="-2.814" az="-1.194" bx=" 2.868" by="-2.814" bz="-1.194" width="1.300" taper="0.4" midpoint="0.234"/>
+
+  <!-- Wing -->
+  <!-- Buckaroo notes:
+    Airfoils are NACA 2215 (root chord) and segment joint chord, and NACA 2206 (tip chord).
+
+    Spar locations (% of root chord):
+      Front   17.65%, 0.782/4.431
+      Center  38.80%, 1.720/4.431
+      Rear    60.00%, 2.659/4.431
+
+    Incidence is 2 degrees.
+
+    Center section dihedral is 0 degrees, outboard 5 degrees from point where outboard segment meets inboard.
+
+    Twist is a guess. The real wing uses an aerodynamic twist (different airfoils at the root chord and wing tips), so
+    it's difficult to know.
+
+    I could not locate complete airfoil data for either airfoil, but I have partial data for cL at alphas up to 12 degrees.
+    I extrapolated to estimate an average YASim camber of 0.12. Critical AoA is guesswork until I have more complete data, but
+    is likely in the 14-16 range; I'll start with 14 and proceed from there. Width and peak are set to give stall behavior
+    roughly similar to that described by real DC-3 pilots (see flying notes).
+
+    MAC: 138.1" (3.508m), LE of MAC aft of inboard wing LE: 31.9" (0.810m)
+    CG range:
+      max forward  11% MAC, 47.1" aft of inboard wing LE
+                   23% MAC, 0.807m aft of LE, x=3.384 (recommended CG)
+      max aft      28% MAC, 70.6" aft of inboard wing LE
+
+    YASim calculates lift at approximately one-third chord from the wing leading edge. To bring lift closer to the recommended
+    CG range, I move the FDM wing forward 0.187 from the physical position of x=2.785 to 2.972. This places theoretical lift
+    at 28% MAC.
+
+    Lift and drag values: A manual lists DC-3 flaps as providing a maximum of 35% cL increase and 250-300% parasitic drag
+    (value depends on reference). (Split flaps have a lot of drag.) These numbers may not translate directly to YASim, but
+    we'll see. The flaps effect on pitch is minimal due to the large drag element.
+
+    Flaps extend under the fuselage, but the effects are likely too marginal to affect the sim much. If desired, an easy way
+    to simulate this would be to slightly increase the lift/drag attributes of the inboard flap segment. Flaps apppear have
+    no detents, but 4 postions are marked: 0, 1/4, 1/2, full. A relief valve prevents extension of flaps above 97 KIAS.
+  -->
+
+  <!-- Inboard segment -->
+  <mstab x="2.772" y="0" z="-1.248"
+         chord="4.431"
+         length="3.479"
+         taper="1"
+         incidence="2"
+         twist="0"
+         idrag="1"
+         camber="0.12">
+         <stall aoa="14" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.35" drag="3"/>
+
+         <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+
+         <control-speed control="FLAP0" transition-time="5"/>
+  </mstab>
+
+  <!-- Outboard segment -->
+  <wing x="2.772" y="3.480" z="-1.248"
+        chord="4.431"
+        length="11.345"
+        taper="0.35"
+        sweep="8"
+        incidence="2"
+        dihedral="8"
+        twist="-2"
+        idrag="1"
+        camber="0.12">
+        <stall aoa="14" width="1" peak="1.5"/>
+        <flap0 start="0.00" end="0.26" lift="1.35" drag="3.00"/>
+        <flap1 start="0.26" end="1.00" lift="1.20" drag="1.10"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/aileron-pos-norm"/>
+
+        <control-speed control="FLAP0" transition-time="5"/>
+  </wing>
+
+  <!-- Elevator -->
+  <!-- Buckaroo notes:
+    Elevator authority is just sufficient to muscle the plane into a stall as described by various pilot reports.
+  -->
+  <hstab x="-8.131" y="0.375" z="0.109"
+         chord="3.323"
+         length="3.749"
+         taper="0.519"
+         sweep="12.5"
+         camber="0.0">
+         <stall aoa="18" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.6" drag="1.1"/>
+
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <!-- Rudder -->
+  <vstab x="-7.647" y="0" z="0.539"
+         chord="4.368"
+         length="3.2"
+         taper="0.49"
+         sweep="16.8">
+         <stall aoa="14" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- Buckaroo notes:
+    Pratt & Whitney R-1830 Twin Wasps, series unspecified
+
+    Propellers: Hamilton Standard Hydromatic, hub 23E50, blade 6359A or 6477A0, wt/mass: 446 lbs, 202 kg, diameter 11' 6 3/8"
+    or 11' 3 3/8" (avg 1.740m radius)
+
+    moment: plain stick method (mR^2)/3 = 202 * 1.74^2 /3 = 203
+    governing engine RPM range: 1200-2700 (675-1519 after gear reduction)
+    avoid continuous operation at 1300-1700 and 1900-2050
+
+    Thrust incidence is 0 degrees from the station line (-2 from the wing chord line).
+
+    Prop RPMs are based on the gearing ratio, which I believe is correct for YASim. Cruise RPM, alt, and power are taken from
+    a POH, cruise speed is really meant for fixed-pitch props; for governed props I simply set it to some typical aircraft
+    cruise speed.
+
+    Wastegate is 48" MP for most engines in this series. Turbo-multiplier is set to give 48" MP up to 4000', give or take.
+    Make sure a boost (blower) property is defined and initialized to 1. The blower is always engaged. Note that with their
+    gearing and always-on supercharger, these engines have a lot of power at sea level.
+  -->
+
+  <!-- Engine left -->
+  <propeller x="6.409" y="2.814" z="-1.194"
+             mass="1696"
+             moment="203"
+             radius="1.74"
+             gear-ratio="0.5625"
+             min-rpm="675"
+             max-rpm="1519" 
+             course-stop="4"
+             fine-stop="0.25"
+             cruise-rpm="1153"
+             cruise-power="625"
+             cruise-speed="160"
+             cruise-alt="7500">
+             <actionpt x="6.820" y="2.814" z="-1.194"/>
+             <control-input axis="/controls/engines/engine[0]/propeller-pitch" control="ADVANCE"/>
+             <piston-engine eng-power="1200"
+                            eng-rpm="2700"
+                            displacement="1829.4"
+                            compression="6.7"
+                            supercharger="1"
+                            turbo-mul="1.85"
+                            wastegate-mp="48">
+                            <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+                            <control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+                            <control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+                            <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
+                            <control-input axis="/controls/engines/engine[0]/boost" control="BOOST"/>
+             </piston-engine>
+  </propeller>
+
+  <!-- Engine right-->
+  <propeller x="6.409" y="-2.814" z="-1.194"
+             mass="1696"
+             moment="203"
+             radius="1.74"
+             gear-ratio="0.5625"
+             min-rpm="675"
+             max-rpm="1519" 
+             course-stop="4"
+             fine-stop="0.25"
+             cruise-rpm="1153"
+             cruise-power="625"
+             cruise-speed="160"
+             cruise-alt="7500">
+             <actionpt x="6.820" y="-2.814" z="-1.194"/>
+             <control-input axis="/controls/engines/engine[1]/propeller-pitch" control="ADVANCE"/>
+             <piston-engine eng-power="1200"
+                            eng-rpm="2700"
+                            displacement="1829.4"
+                            compression="6.7"
+                            supercharger="1"
+                            turbo-mul="1.85"
+                            wastegate-mp="48">
+                            <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
+                            <control-input axis="/controls/engines/engine[1]/starter" control="STARTER"/>
+                            <control-input axis="/controls/engines/engine[1]/magnetos" control="MAGNETOS"/>
+                            <control-input axis="/controls/engines/engine[1]/mixture" control="MIXTURE"/>
+                            <control-input axis="/controls/engines/engine[1]/boost" control="BOOST"/>
+             </piston-engine>
+  </propeller>
+
+  <!-- Buckaroo notes:
+    The DC-3 tail wheel casters. It is not steerable nor is it coupled to the rudders. Taxi control is via differential engine
+    power and braking. Make sure that the controls/gear/tailwheel-lock property is defined and has a handy toggle control as a
+    keyboard command at least.
+
+    Main gear compression (max strut extension) should be 0.2m. I'm leaving this at 0.15 for current model compatibility.
+    Tail gear should be about 0.114m so 0.1 is OK.
+
+    I've seen gear listed as needing "approximately 12 seconds" to deploy. I'll use 12 seconds until a rate can be verified.
+  -->
+  <!-- Retractable wheels 0/1/2/3 -->
+  <gear x="9.554" y="2.668" z="-4.596" 
+        compression="0.2"  
+        spring="2" 
+        sfric="0.5" 
+        dfric=".45" 
+        retract-time="4" 
+        initial-load="0" 
+        damp="0.6">
+        <control-input control="STEER" axis="/controls/flight/rudder" square="true"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+        
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <gear x="9.554" y="-2.668" z="-4.596" 
+        compression="0.2" 
+        spring="2" 
+        sfric="0.5" 
+        dfric=".45" 
+        retract-time="4" 
+        initial-load="0" 
+        damp="0.6">
+        <control-input control="STEER" axis="/controls/flight/rudder" square="true"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+        
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <gear x="2.124" y="2.668" z="-4.592" 
+        compression="0.2" 
+        spring="3.5" 
+        sfric="0.5" 
+        dfric=".45" 
+        retract-time="4" 
+        initial-load="1" 
+        damp="10.1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
+        <control-input control="BRAKE" axis="/controls/gear/brake-left" />
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+        
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <gear x="2.124" y="-2.668" z="-4.592" 
+        compression="0.2" 
+        spring="3.5" 
+        sfric="0.5" 
+        dfric=".45" 
+        retract-time="4" 
+        initial-load="1" 
+        damp="10.1">
+        <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
+        <control-input control="BRAKE" axis="/controls/gear/brake-right" />
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        
+        <control-output control="EXTEND" prop="/gear/gear[3]/position-norm"/>
+        
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <!-- Flotteurs -->
+  <!-- Avant 4/5 -->
+  <gear x="9.608" y="2.668" z="-3.80"
+        compression="1.5" 
+        spring = "15" 
+        sfric = "0.85" 
+        dfric = "0.75" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="25" 
+        spring-factor-not-planing="0.25">
+  </gear>
+
+  <gear x="9.608" y="-2.668" z="-3.80"
+        compression="1.5" 
+        spring = "15" 
+        sfric = "0.85"
+        dfric = "0.75" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="25" 
+        spring-factor-not-planing="0.25">
+  </gear>
+
+  <!-- Central 6/7 -->
+  <gear x="2.560" y="2.668" z="-3.40" 
+        compression="1.2" 
+        spring = "15" 
+        sfric = "0.8" 
+        dfric = "0.7" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="15" 
+        spring-factor-not-planing="0.4">
+  </gear>
+
+  <gear x="2.60" y="-2.668" z="-3.40" 
+        compression="1.2" 
+        spring = "15" 
+        sfric = "0.8" 
+        dfric = "0.7" 
+        ignored-by-solver="0"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="1.15"
+        speed-planing="15" 
+        spring-factor-not-planing="0.4">
+  </gear>
+ 
+  <!-- Arriere 8/9 -->
+  <gear x="3.296" y="2.668" z="-2.00" 
+        compression="1.8" 
+        spring = "8" 
+        sfric = "0.9" 
+        dfric = "0.8" 
+        ignored-by-solver="1"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="0.9"
+        speed-planing="25" 
+        spring-factor-not-planing="0.85">
+  </gear>
+
+  <gear x="-3.296" y="-2.668" z="-2.00" 
+        compression="1.8" 
+        spring = "8" 
+        sfric = "0.9" 
+        dfric = "0.8" 
+        ignored-by-solver="1"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="0.9"
+        speed-planing="25" 
+        spring-factor-not-planing="0.85">
+  </gear>
+
+  <!-- 2 more Floats, need to be at this position in the file to do not brake the animation
+    "reduce-friction-by-extension" is reduced to get steering control 10/11-->
+  <gear x="-3.839" y="2.668" z="-3.173" 
+        compression="1.8" 
+        spring="8" 
+        sfric="0.9" 
+        dfric="0.8" 
+        ignored-by-solver="1"
+        on-water="1" 
+        on-solid="0" 
+        reduce-friction-by-extension="0.7"
+        speed-planing="25" spring-factor-not-planing="3">
+        <control-input axis="/controls/gear/water-rudder-pos" control="STEER" invert ="true" square="true"/>
+  </gear>
+
+  <gear x="-3.839" y="-2.668" z="-3.173" 
+        compression="1.8" 
+        spring="8" 
+        sfric="0.9" 
+        dfric="0.8" 
+        ignored-by-solver="1"
+        on-water="1"
+        on-solid="0" 
+        reduce-friction-by-extension="0.7"
+        speed-planing="25" spring-factor-not-planing="3">
+        <control-input axis="/controls/gear/water-rudder-pos" control="STEER" invert="true" square="true"/>
+  </gear>
+
+  <!-- Buckaroo notes:
+    Standard civilian configuration has 2 main tanks of 210 gallons and 2 aux tanks of 201 gallons each. Each tank holds 5 gallons
+    of unusable fuel (20 total). The main tanks are mounted between the front and center spars in the inboard wing segment. The aux
+    tanks are mounted directly behind the main tanks, between the center and rear spars. I've calculated locations that place the
+    tanks centered between the spars.
+
+    Flight procedure is for each engine to draw from its respective main tank for takeoff and landing. Once cruising altitude is
+    reached and each main tank is less than 160 gallons, fuel is then drawn from the auxiliary tanks before switching back to main
+    tanks. Minimum fuel for takeoff is 130 gallons distributed between the left and right main tanks.
+
+    Normal fuel pressure is 14-16 psi. Normal boost pump pressure is 14-16 psi. Fuel pressure warning light illuminates when
+    pressure is less than 10 psi. Boost pumps are operated when: starting engines, fuel pressure is fluctuating, primary 
+    engine pump failure, takeoff and landing, and switching tanks in flight. Otherwise boost pumps are off.
+  -->
+  <tank x="2.810" y=" 2.341" z="-1.258" capacity="1206"/> <!-- Aux left -->
+  <tank x="3.749" y=" 2.341" z="-1.258" capacity="1260"/> <!-- Main left -->
+  <tank x="3.749" y="-2.341" z="-1.258" capacity="1260"/> <!-- Main right -->
+  <tank x="2.810" y="-2.341" z="-1.258" capacity="1206"/> <!-- Aux right -->
+
+
+  <!-- Mass displacment -->
+  <!-- Buckaroo notes:
+       CG goal: 23% MAC, x=3.384
+       Re-distribute as needed to place CG at roughly 23% MAC.
+  -->
+  <ballast x="8" y="0.0" z="-1" mass="3300"/>
+
+  <!-- Loading compartments:
+
+                           station (in)     X (m rel. CG)
+  (**CG**)                          375              0.00
+  A (flight deck forward):            0              9.52
+  B (flight deck mid):              120              6.48
+  C (radio op / front galley):      160              5.46
+  D (pax/cargo 1):                  225              3.81
+  E (pax/cargo 2):                  320              1.40
+  F (pax/cargo 3):                  405             -0.76
+  G (cargo 4 / baggage):            490             -2.92
+  H (lavatory / rear galley):       560             -4.70
+  -->
+  <weight x="9.52" y="0" z="0" mass-prop="/sim/weight[0]/weight-lb" />
+  <weight x="6.48" y="0" z="0" mass-prop="/sim/weight[1]/weight-lb" />
+  <weight x="5.46" y="0" z="0" mass-prop="/sim/weight[2]/weight-lb" />
+  <weight x="3.81" y="0" z="0" mass-prop="/sim/weight[3]/weight-lb" />
+  <weight x="1.40" y="0" z="0" mass-prop="/sim/weight[4]/weight-lb" />
+  <weight x="-0.76" y="0" z="0" mass-prop="/sim/weight[5]/weight-lb" />
+  <weight x="-2.92" y="0" z="0" mass-prop="/sim/weight[6]/weight-lb" />
+  <weight x="-4.70" y="0" z="0" mass-prop="/sim/weight[7]/weight-lb" />
+
+</airplane>

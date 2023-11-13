@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+
+  <name>EN-1-Introduction</name>
+  <description>Here is a presentation of the Douglas DC3 C47</description>
+
+  <init>
+    <set>
+      <property>controls/gear/tailwheel-lock</property>
+      <value>1</value>
+    </set>
+
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+
+    <set>
+      <property>gear/gear/has-brake</property>
+      <value>1</value>
+    </set>
+
+    <set>
+      <property>environment/weather-scenario</property>
+      <value>Fair weather</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/crew/position-norm</property>
+      <value>1</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/cargo/position-norm</property>
+      <value>1</value>
+    </set>
+
+  </init>
+
+  <step>
+    <message>The Douglas DC-3 C-47 is a great plane, I propose to you a little visit of this aircraft</message>
+  </step>
+ 
+  <!-- Vue de face-->
+  <step>
+    <message>The C-47 is the military version of the DC-3</message>
+    <view>
+      <heading-offset-deg>200</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-9</x-offset-m>
+      <y-offset-m>1</y-offset-m>
+      <z-offset-m>-16</z-offset-m>
+      <field-of-view>100</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>During the second world war, he assured the transport of freight,the parachute drop and glider towing</message>
+    <view>
+      <heading-offset-deg>-90</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-18</x-offset-m>
+      <y-offset-m>2</y-offset-m>
+      <z-offset-m>-3</z-offset-m>
+      <field-of-view>80</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message> </message>
+    <view>
+      <heading-offset-deg>-30</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-8</x-offset-m>
+      <y-offset-m>2</y-offset-m>
+      <z-offset-m>20</z-offset-m>
+      <field-of-view>80</field-of-view>
+    </view>
+  </step>
+
+  <step>
+      <message> </message>
+    <view>
+      <heading-offset-deg>80</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>20</x-offset-m>
+      <y-offset-m>1</y-offset-m>
+      <z-offset-m>2</z-offset-m>
+      <field-of-view>90</field-of-view>
+    </view>
+  </step>
+
+
+<!-- Vue moteur -->
+
+  <step>
+    <message>Have a look at the engine, this is a Pratt and whitney</message>
+    <view>
+      <heading-offset-deg>150</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>4.3</x-offset-m>
+      <y-offset-m>-1</y-offset-m>
+      <z-offset-m>-8.8</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>14-cylinder radial air-cooled</message>
+    <view>
+      <heading-offset-deg>80</heading-offset-deg>
+      <pitch-offset-deg>-10</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>6</x-offset-m>
+      <y-offset-m>0</y-offset-m>
+      <z-offset-m>-5</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>1200 hp</message>
+    <view>
+      <heading-offset-deg>150</heading-offset-deg>
+      <pitch-offset-deg>15</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>4.3</x-offset-m>
+      <y-offset-m>-1.8</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message> </message>
+    <view>
+      <heading-offset-deg>-50</heading-offset-deg>
+      <pitch-offset-deg>5</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-6</x-offset-m>
+      <y-offset-m>-2</y-offset-m>
+      <z-offset-m>-3</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+
+  <step>
+  <message>I propose a visit to this wonderful airplane</message>
+    <view>
+      <heading-offset-deg>-70</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-15</x-offset-m>
+      <y-offset-m>0</y-offset-m>
+      <z-offset-m>6</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+
+  </step>
+
+  <step>
+  <message></message>
+    <view>
+      <heading-offset-deg>-80</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-8</x-offset-m>
+      <y-offset-m>0</y-offset-m>
+      <z-offset-m>3.5</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+
+  </step>
+
+ 
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>60</heading-offset-deg>
+      <pitch-offset-deg>-15</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0.8</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>3.5</z-offset-m>
+      <field-of-view>70</field-of-view>
+    </view>
+  </step>
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>5</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0.5</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>3.5</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>Here is the cab of the DC-3</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-10</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.2</x-offset-m>
+      <y-offset-m>0.5</y-offset-m>
+      <z-offset-m>2</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>You can embark as a passenger</message>
+    <view>
+      <heading-offset-deg>-20</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.2</y-offset-m>
+      <z-offset-m>-3</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>A real driver will transport you</message>
+    <view>
+      <heading-offset-deg>-10</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.3</y-offset-m>
+      <z-offset-m>-3</z-offset-m>
+      <field-of-view>50</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>And you can enjoy the view</message>
+    <view>
+      <heading-offset-deg>90</heading-offset-deg>
+      <pitch-offset-deg>-10</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.1</y-offset-m>
+      <z-offset-m>-4.7</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>Here is the cockpit of the DC3</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.3</y-offset-m>
+      <z-offset-m>-6</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>You can board as a pilot</message>
+    <view>
+      <heading-offset-deg>48</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.2</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>95</field-of-view>
+    </view>
+  </step>
+ 
+  <step>
+  <message>Or co-pilot</message>
+    <view>
+      <heading-offset-deg>-90</heading-offset-deg>
+      <pitch-offset-deg>-20</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.3</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>As you can see, many people can be on the same DC-3</message>
+  </step>
+
+  <step>
+  <message>Most of electrical systems are available</message>
+    <view>
+      <heading-offset-deg>17</heading-offset-deg>
+      <pitch-offset-deg>45</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.3</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>70</field-of-view>
+    </view>
+  </step>
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>-21</heading-offset-deg>
+      <pitch-offset-deg>45</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.2</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>70</field-of-view>
+    </view>
+  </step> 
+
+  <step>
+  <message>And the hydraulic</message>
+    <view>
+      <heading-offset-deg>-73</heading-offset-deg>
+      <pitch-offset-deg>-85</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>80</field-of-view>
+    </view>
+  </step>
+
+  <step>
+  <message>I can promise you that you will take a lot of fun by flying this aircraft</message>
+    <view>
+      <heading-offset-deg>10</heading-offset-deg>
+      <pitch-offset-deg>-35</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>80</field-of-view>
+    </view>
+  </step>
+
+
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>-20</heading-offset-deg>
+      <pitch-offset-deg>-25</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>70</field-of-view>
+    </view>
+  </step>
+<!-- Vue console centrale-->
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-12</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0</x-offset-m>
+      <y-offset-m>-0.1</y-offset-m>
+      <z-offset-m>-7.1</z-offset-m>
+      <field-of-view>55</field-of-view>
+    </view>
+  </step>
+ 
+
+  <step>
+  <message> </message>
+    <view>
+      <heading-offset-deg>-130</heading-offset-deg>
+      <pitch-offset-deg>-10</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.1</x-offset-m>
+      <y-offset-m>0.4</y-offset-m>
+      <z-offset-m>-7</z-offset-m>
+      <field-of-view>100</field-of-view>
+    </view>
+  </step>
+  <end>
+    <message>Have a good flight ! You can see the other tutorials if you want !</message>
+  </end>
+
+</PropertyList>

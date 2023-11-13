@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+
+  <name>FR-3-TAXI</name>
+  <description>
+Avec l'aide de ce tutoriel, vous serez capables de faire un roulage au sol avec votre DC-3
+
+  </description>
+
+  <!-- La procédure devra être complétée au fil du temps et de l'avancement du DC-3. Vous avez la possibilité d'ajouter vos avis et critiques à la suite de ce texte et me donner ainsi une todoList de tout ce que je dois faire et corriger :
+  
+  Todo List :
+
+  
+  Voici la check list du manuel :
+  
+  *********** TAXI **********
+  BRAKES ..................................... CHECK
+  FLAP HANDLE .................................... 0
+  FLAP INDICATOR ........................... NEUTRAL
+  
+  ALTIMETERS .......................... CROSSCHECKED
+  FLT AND NAV INSTR ........... SET AND CROSSCHECKED
+  FLT CONTROLS ........................ TOPS/BOTTOMS
+
+	
+  -->
+
+<!-- Configuration au démarrage du tutoriel-->
+
+  <init>
+    <set>
+      <property>controls/gear/tailwheel-lock</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+
+    <set>
+      <property>engines/engine/running</property>
+      <value>true</value>
+    </set>
+
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/aileron-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/rudder-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/crew/position-norm</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/cargo/position-norm</property>
+      <value>0</value>
+    </set>
+  </init>
+
+  <step>
+      <message> </message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.475</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>56</field-of-view>
+    </view>
+	<error>
+   <message>Veuillez demarrer les moteurs, vous pouvez utiliser le tutoriel FRdemarrage </message>
+      <condition>
+        <equals>
+          <property>engines/engine/running</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </error>
+    <exit>
+   <message>Les moteurs sont en route ?</message>
+      <condition>
+		<equals>
+          <property>engines/engine/running</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+<!-- explications-->
+  <step>
+    <message>Alors allons-y !</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-13</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.4</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>Sur le DC-3, la direction est assuree par des freins differentiels</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-13</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.4</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>On commence par debloquer la roulette de queue</message>
+      <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-50</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0</x-offset-m>
+      <y-offset-m>-0.1</y-offset-m>
+      <z-offset-m>-7.9</z-offset-m>
+      <field-of-view>52</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>Elle est alors libre de tout mouvement</message>
+  </step>
+
+  <step>
+    <message>Retirez le frein de parc</message>
+      <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-12</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.05</x-offset-m>
+      <y-offset-m>-0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>52</field-of-view>
+    </view>
+    <error>
+	  <message>Cliquez sur le bouton rouge ou faites shift+b</message>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>1</value>
+		</equals>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+
+  <step>
+    <message>Poussez legerement la manette des gaz</message>
+	 <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-8</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.475</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+    <error>
+      <message>doucement tout de meme !</message>
+      <condition>
+          <greater-than>
+            <property>controls/engines/engine[0]/throttle</property>
+            <value>0.9</value>
+          </greater-than>
+        <less-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.3</value>
+        </less-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+        <less-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.3</value>
+        </less-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>L'avion va ainsi avancer</message>
+  </step>
+
+  <step>
+    <message>Vous pouvez alors diriger l'avion avec le frein de droite (touche ".")  </message>
+  </step>
+  <step>
+    <message>ou de gauche (touche ",")  </message>
+  </step>
+  <step>
+    <message>Ne pas oublier de bloquer le roue avant decollage</message>
+  </step>
+  
+  <end>
+    <message>Avec un peu d'entrainement, vous serez capable de diriger correctement le DC-3</message>
+  </end>
+</PropertyList>

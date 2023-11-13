@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+
+  <!-- Français -->
+  <tutorial include="FRIntroduction.xml"/>
+  <tutorial include="FRstartup.xml"/>
+  <tutorial include="FRtaxi.xml"/>
+  <tutorial include="FRtakeoff.xml"/>
+
+  <!-- English -->
+  <tutorial include="ENIntroduction.xml"/>
+  <tutorial include="ENstartup.xml"/>
+  <tutorial include="ENtaxi.xml"/>
+  <tutorial include="ENtakeoff.xml"/>
+
+  <!-- Deutch -->
+  <tutorial include="DEIntroduction.xml"/>
+  <tutorial include="DEstartup.xml"/>
+  <tutorial include="DEtaxi.xml"/><!--
+  <tutorial include="DEtakeoff.xml"/>-->
+  
+</PropertyList>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <nasal>
+    <load><![CDATA[
+      var livery_update = aircraft.livery_update.new("Aircraft/Douglas-Dc3/Models/Liveries");
+
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    ]]></load>
+
+    <unload><![CDATA[
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    ]]></unload>
+  </nasal>
+
+  <!-- Le fuselage -->
+  <model>
+    <path>Aircraft/Douglas-Dc3/Models/main.xml</path>
+  </model>
+
+  <!-- Les roues -->
+  <model>
+    <name>LesRoues</name>
+    <path>Aircraft/Douglas-Dc3/Models/wheels.xml</path>
+  </model>
+
+  <!-- Une ombre pour OSG -->
+  <model>
+    <name>OmbreRoues</name>
+    <path>Aircraft/Douglas-Dc3/Models/shadow.xml</path>
+    <offsets>
+      <x-m>  0.85 </x-m>
+      <y-m>  0.00 </y-m>
+      <z-m> -2.40 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>LesRoues</object-name>
+    <object-name>OmbreRoues</object-name>
+    <condition>
+      <equals>
+        <property>sim/model/variant</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- Les flotteurs -->
+  <model>
+    <name>LesFlotteurs</name>
+    <path>Aircraft/Douglas-Dc3/Models/floats.xml</path>
+  </model>
+
+  <!-- Une ombre pour OSG -->
+  <model>
+    <name>OmbreFlotteurs</name>
+    <path>Aircraft/Douglas-Dc3/Models/shadowA.xml</path>
+    <offsets>
+      <x-m>  0.0 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m> -2.8 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>LesFlotteurs</object-name>
+    <object-name>OmbreFlotteurs</object-name>
+    <condition>
+      <equals>
+        <property>sim/model/variant</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+</PropertyList>

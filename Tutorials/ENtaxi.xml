@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<!-- 
+     ************************************************************************
+     Douglas DC-3 C47
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+
+  <name>EN-3-TAXI</name>
+  <description>
+With the help of this tutorial, you will be able to taxi your DC-3.
+
+  </description>
+
+
+<!-- Configuration au démarrage du tutoriel-->
+
+  <init>
+    <set>
+      <property>controls/gear/tailwheel-lock</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+
+    <set>
+      <property>engines/engine/running</property>
+      <value>true</value>
+    </set>
+
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/elevator-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/aileron-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>controls/flight/rudder-trim</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/crew/position-norm</property>
+      <value>0</value>
+    </set>
+
+    <set>
+      <property>instrumentation/doors/cargo/position-norm</property>
+      <value>0</value>
+    </set>
+  </init>
+
+  <step>
+      <message> </message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.475</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>56</field-of-view>
+    </view>
+	<error>
+   <message>Please start the engines, you can use the tutorial startup</message>
+      <condition>
+        <equals>
+          <property>engines/engine/running</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </error>
+    <exit>
+   <message>The engines are  running ?</message>
+      <condition>
+		<equals>
+          <property>engines/engine/running</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+<!-- explications-->
+  <step>
+    <message>So let's go!</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-13</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.4</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>The DC-3, conduct is provided by differential brake</message>
+    <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-13</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.4</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>We start by unlocking the tail wheel</message>
+      <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-50</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>0</x-offset-m>
+      <y-offset-m>-0.1</y-offset-m>
+      <z-offset-m>-7.9</z-offset-m>
+      <field-of-view>52</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>It is then free to move</message>
+  </step>
+
+  <step>
+    <message>Remove parking brake</message>
+      <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-12</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.05</x-offset-m>
+      <y-offset-m>-0.4</y-offset-m>
+      <z-offset-m>-8</z-offset-m>
+      <field-of-view>52</field-of-view>
+    </view>
+    <error>
+	  <message>Click on the red button or do shift + b</message>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>1</value>
+		</equals>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+		<equals>
+          <property>controls/gear/brake-parking</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>  
+  </step>
+
+  <step>
+    <message>Push the throttle slightly</message>
+	 <view>
+      <heading-offset-deg>0</heading-offset-deg>
+      <pitch-offset-deg>-8</pitch-offset-deg>
+      <roll-offset-deg>0</roll-offset-deg>
+      <x-offset-m>-0.475</x-offset-m>
+      <y-offset-m>0.434</y-offset-m>
+      <z-offset-m>-7.965</z-offset-m>
+      <field-of-view>60</field-of-view>
+    </view>
+    <error>
+      <message>slowly !</message>
+      <condition>
+          <greater-than>
+            <property>controls/engines/engine[0]/throttle</property>
+            <value>0.9</value>
+          </greater-than>
+        <less-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.3</value>
+        </less-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+        <less-than>
+          <property>controls/engines/engine[0]/throttle</property>
+          <value>0.3</value>
+        </less-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Aircraft will move</message>
+  </step>
+
+  <step>
+    <message>You can then conduct the aircraft with the right brake (key ".") </message>
+  </step>
+  <step>
+    <message>Or left (key ",") </message>
+  </step>
+  <step>
+    <message>Do not forget to lock the tail wheel before takeoff</message>
+  </step>
+  
+  <end>
+    <message>With some practice, you will be able to correctly taxi the DC-3</message>
+  </end>
+</PropertyList>

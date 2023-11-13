@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>propeller.ac</path>
+ 
+  <animation>
+    <object-name>bol</object-name>   
+    <object-name>pale1</object-name>
+    <object-name>pale2</object-name>
+    <object-name>pale3</object-name>
+
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+  </animation>   
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+  </effect>
+  
+  <animation>
+    <name>helice</name>
+    <object-name>bol</object-name>   
+    <object-name>pale1</object-name>
+    <object-name>pale2</object-name>   
+    <object-name>pale3</object-name>
+    <object-name>propdisc</object-name>
+    <object-name>propblur</object-name>
+  </animation>   
+
+  <!-- Mise en place des pales par défaut -->
+  <animation>
+    <type>select</type>
+    <object-name>pale1</object-name>
+    <object-name>pale2</object-name>   
+    <object-name>pale3</object-name>
+    <condition>
+      <or>
+        <less-than>
+          <property>engines/engine[0]/rpm</property>
+          <value>1000</value>
+        </less-than>
+        <property>controls/engines/engine[0]/propeller-feather</property>
+      </or>
+    </condition>
+  </animation>
+
+  <!-- Sélection Pales/disque en fonction de "RPM" -->
+  <animation>
+    <type>select</type>
+    <object-name>propdisc</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>engines/engine[0]/rpm</property>
+          <value>1000</value>
+        </greater-than>
+        <equals>
+          <property>controls/engines/engine[0]/propeller-feather</property>
+          <value> false </value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>propblur</object-name>
+    <condition>
+      <and>
+        <and>
+          <greater-than>
+            <property>engines/engine[0]/rpm</property>
+            <value>400.000</value>
+          </greater-than>
+          <less-than>
+            <property>engines/engine[0]/rpm</property>
+            <value>1000.001</value>
+          </less-than>
+        </and>
+        <equals>
+          <property>controls/engines/engine[0]/propeller-feather</property>
+          <value> false </value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale1</object-name>
+    <condition>
+      <not>
+        <property>controls/engines/engine[0]/propeller-feather</property>
+      </not>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-pitch</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 20 </dep></entry>
+      <entry><ind> 1 </ind><dep> 45 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> 0.00000 </x1-m>
+      <y1-m> 0.00000 </y1-m>
+      <z1-m> 0.00000 </z1-m>
+      <x2-m> 0.00000 </x2-m>
+      <y2-m> 0.00000 </y2-m>
+      <z2-m> 0.13399 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale1</object-name>
+    <condition>
+      <property>controls/engines/engine[0]/propeller-feather</property>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-feather-pos</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 90 </dep></entry>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> 0.00000 </x1-m>
+      <y1-m> 0.00000 </y1-m>
+      <z1-m> 0.00000 </z1-m>
+      <x2-m> 0.00000 </x2-m>
+      <y2-m> 0.00000 </y2-m>
+      <z2-m> 0.13399 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale2</object-name>
+    <condition>
+      <not>
+        <property>controls/engines/engine[0]/propeller-feather</property>
+      </not>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-pitch</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 20 </dep></entry>
+      <entry><ind> 1 </ind><dep> 45 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.00000 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m>  0.00000 </z1-m>
+      <x2-m>  0.00000 </x2-m>
+      <y2-m>  0.11604 </y2-m>
+      <z2-m> -0.06699 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale2</object-name>
+    <condition>
+      <property>controls/engines/engine[0]/propeller-feather</property>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-feather-pos</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 90 </dep></entry>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.00000 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m>  0.00000 </z1-m>
+      <x2-m>  0.00000 </x2-m>
+      <y2-m>  0.11604 </y2-m>
+      <z2-m> -0.06699 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale3</object-name>
+    <condition>
+      <not>
+        <property>controls/engines/engine[0]/propeller-feather</property>
+      </not>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-pitch</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 20 </dep></entry>
+      <entry><ind> 1 </ind><dep> 45 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.00000 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m>  0.00000 </z1-m>
+      <x2-m>  0.00000 </x2-m>
+      <y2-m> -0.10976 </y2-m>
+      <z2-m> -0.07685 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pale3</object-name>
+    <condition>
+      <property>controls/engines/engine[0]/propeller-feather</property>
+    </condition>
+    <property>controls/engines/engine[0]/propeller-feather-pos</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 90 </dep></entry>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.00000 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m>  0.00000 </z1-m>
+      <x2-m>  0.00000 </x2-m>
+      <y2-m> -0.10976 </y2-m>
+      <z2-m> -0.07685 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Rotation de l'hélice -->
+  <animation>
+    <type>spin</type>
+    <object-name>helice</object-name>
+    <condition>
+      <equals>
+        <property>controls/engines/engine[0]/propeller-feather</property>
+        <value> false </value>
+      </equals>
+    </condition>
+    <property>engines/engine[0]/rpm</property>
+    <factor> -0.479 </factor>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

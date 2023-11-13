@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ************************************************************************
+     Douglas DC-3 C47
+     
+     January 2011 BARANGER Emmanuel
+     January 2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     December 2012 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah : http://helijah.free.fr / http://embaranger.free.fr
+     ************************************************************************
+-->
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>Douglas DC-3 C47</label>
+      <enabled type="bool">true</enabled>
+      <item>
+        <label>Options</label>
+        <binding>
+          <command>nasal</command>
+          <script>dc3.config_dlg.open()</script>
+        </binding>
+      </item>
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+      <item>
+        <label>Select MP-copilot</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+          </script>
+        </binding>
+      </item>
+    </menu>
+  </default>
+
+</PropertyList>

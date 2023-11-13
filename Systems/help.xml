@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+  
+  <title>Douglas DC-3 C47</title>
+  <key>
+    <name>d</name>
+    <desc>Open/Close crew door</desc>
+  </key>
+  <key>
+    <name>D</name>
+    <desc>Open/Close passenger door</desc>
+  </key>
+  <key>
+    <name>E</name>
+    <desc>Open/Close cargo door</desc>
+  </key>
+  <key>
+    <name>f/F</name>
+    <desc>Open/Close cowl flaps (right of the copilot; TRAIL=automatic)</desc>
+  </key>
+  <key>
+    <name>j</name>
+    <desc>Parachutist</desc>
+  </key>
+  <key>
+    <name>o</name>
+    <desc>Lock aerotow-hook</desc>
+  </key>
+  <key>
+    <name>O</name>
+    <desc>Open aerotow-hook</desc>
+  </key>
+  <text><![CDATA[========== Startup ==========
+See Help | Tutorials.
+
+========== Engines Autostart ==========
+1 - Open Douglas DC-3 C47 dialog (Douglas DC-3 C47 > Options)
+2 - Click on Autostart button
+3 - Press key "s"
+
+========== Procedures ==========
+Takeoff -> no flaps, rotate at 75 KIAS
+Climbout -> no flaps, 80 KIAS
+Cruise -> trim down, 165 KIAS
+Landing -> full flaps, 75 KIAS
+Landing gear handle -> unlock* Gear Lock, pull/push Gear Handle, lock* Gear Lock
+*: click on it
+
+========== Dual Control ==========
+For a best experience, pilot and copilot need to be connected on the same server
+=== Pilot select copilot ===
+1 - Open Pilot dialog (Douglas DC-3 C47 > Select MP-copilot)
+2 - Select one copilot available
+3 - Close Pilot dialog
+=== Copilot select pilot ===
+1 - Open Copilot dialog (Douglas DC-3 C47 > Select MP-pilot)
+2 - Select one pilot available
+3 - Close Copilot dialog
+]]></text>
+
+</PropertyList>

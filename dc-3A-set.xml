@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ***************************************************************************************
+     Douglas DC-3 C47
+     
+     January  2011 generate by helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team    : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah        : http://helijah.free.fr / http://embaranger.free.fr
+     April    2012 New version by Buckaroo : http://www.buckarooshangar.com/flightgear/index.html
+     December 2012 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     Jan-...  2022 updated by Tobias Dammers : https://github.com/tdammers/Douglas-Dc3
+     ***************************************************************************************
+-->
+<PropertyList include="Systems/dc-3-base.xml">
+  
+  <sim>
+
+    <description>Douglas DC-3/C-47 Amphibious (YASim)</description>
+    <author>BARANGER Emmanuel (3D), PAF Team (Systems,3D), Buckaroo (FDM), Tobias Dammers (Systems,3D)</author>
+    
+    <flight-model>yasim</flight-model>
+    <aero>Systems/dc-3A-yasim</aero>
+    
+    <variant-of>dc-3</variant-of>
+    
+    <type type="string">seaplane</type>
+    
+    <startup>
+      <splash-texture>Aircraft/Douglas-Dc3/dc-3-splash.png</splash-texture>
+    </startup>
+    
+    <model>
+      <path>Aircraft/Douglas-Dc3/Models/dc-3.xml</path>
+      <variant type="int">1</variant>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+    
+    <sound>
+      <path>Aircraft/Douglas-Dc3/Sounds/dc-3A-sound.xml</path>
+    </sound>
+    
+  </sim>
+
+  <!-- ############################### -->
+  <!-- ######## DUAL CONTROL ######### -->
+  <nasal>
+    <dual_control_tools>
+      <file>Aircraft/Douglas-Dc3/DualControl/dual-control-tools.nas</file>
+    </dual_control_tools>
+    <aircraft_dual_control>
+      <file>Aircraft/Douglas-Dc3/DualControl/dc-3-dual-control.nas</file>
+    </aircraft_dual_control>
+    <dual_control>
+      <file>Aircraft/Douglas-Dc3/DualControl/pilot-dual-control.nas</file>
+    </dual_control>
+  </nasal>
+  <!-- ######## DUAL CONTROL ######### -->
+  <!-- ############################### -->
+  
+</PropertyList>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- ***************************************************************************************
+     Douglas DC-3 C47
+     
+     January  2011 generate by helijah  : http://helijah.free.fr / http://embaranger.free.fr
+     January  2012 modified by PAF team : http://http://equipe-flightgear.forumactif.com
+     February 2012 modified Helijah     : http://helijah.free.fr / http://embaranger.free.fr
+     December 2012 updated  by Helijah  : http://helijah.free.fr / http://embaranger.free.fr
+     April    2016 updated  by Helijah  : http://helijah.free.fr / http://embaranger.free.fr
+     ***************************************************************************************
+-->
+<PropertyList>
+  
+  <keyboard>
+    
+    <key n="103">
+      <name>g</name>
+      <desc>Landing Gear Up</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("controls/gear/gear-down-lock", 0);
+          setprop("controls/gear/gear-down-cmd", 0);
+          settimer(func{setprop("controls/gear/gear-down-lock", 1);}, 6);
+        </script>
+      </binding>
+    </key>
+    
+    <key n="100">
+      <name>d</name>
+      <desc>Crew door</desc>
+      <binding>
+        <command>nasal</command>
+        <script>dc3.CrewDoor.toggle();</script>
+      </binding>
+    </key>
+    
+    <key n="71">
+      <name>G</name>
+      <desc>Landing Gear Down</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("controls/gear/gear-down-lock", 0);
+          setprop("controls/gear/gear-down-cmd", 1);
+          settimer(func{setprop("controls/gear/gear-down-lock", 1);}, 6);
+        </script>
+      </binding>
+    </key>
+    
+    <key n="68">
+      <name>D</name>
+      <desc>Passenger door</desc>
+      <binding>
+        <command>nasal</command>
+        <script>dc3.PassengerDoor.toggle();</script>
+      </binding>
+    </key>
+    
+    <key n="69">
+      <name>E</name>
+      <desc>Cargo door</desc>
+      <binding>
+        <command>nasal</command>
+        <script>dc3.CargoDoor.toggle();</script>
+      </binding>
+    </key>
+    
+    <key n="70">
+      <name>F</name>
+      <desc>Close cowl flaps</desc>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/cowl-flaps-cmd</property>
+        <step>1</step>
+        <min>0</min>
+        <max>4</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/cowl-flaps-cmd</property>
+        <step>1</step>
+        <min>0</min>
+        <max>4</max>
+        <wrap>false</wrap>
+      </binding>
+    </key>
+    
+    <key n="102">
+      <name>f</name>
+      <desc>Open cowl flaps</desc>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/cowl-flaps-cmd</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>4</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/cowl-flaps-cmd</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>4</max>
+        <wrap>false</wrap>
+      </binding>
+    </key>
+    
+    <key n="106">
+      <name>j</name>
+      <desc>Jump signal</desc>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/paratroopers/jump-signal</property>
+        <value>true</value>
+      </binding>
+    </key>
+    
+    <key n="108">
+      <name>l</name>
+      <desc>Toggle tail-wheel lock.</desc>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gear/tailwheel-lock</property>
+      </binding>
+    </key>
+
+    <key n="109">
+      <name>m</name>
+      <desc>Mixture richer</desc>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/engines/mixture-all</property>
+        <step type="double">0.5</step>
+        <min type="double">-1</min>
+        <max type="double">1</max>
+        <wrap type="bool">false</wrap>
+      </binding>
+    </key>
+    <key n="77">
+      <name>M</name>
+      <desc>Mixture leaner</desc>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/engines/mixture-all</property>
+        <step type="double">-0.5</step>
+        <min type="double">-1</min>
+        <max type="double">1</max>
+        <wrap type="bool">false</wrap>
+      </binding>
+    </key>
+    
+  </keyboard>
+  
+  <mice>
+    <mouse n="0">
+      <mode n="0">
+        <button n="3">
+          <binding n="1">
+            <condition>
+              <and>
+                <property>/sim/current-view/can-change-z-offset</property>
+                <not>
+                  <property>/devices/status/mice/mouse[0]/button[2]</property>
+                </not>
+                <not>
+                  <property>/sim/mouse/right-button-mode-cycle-enabled</property>
+                </not>
+              </and>
+            </condition>
+            <command>nasal</command>
+            <script>
+              var distance = getprop("/sim/current-view/z-offset-m");
+              var sgn = math.sgn(distance);
+              var min_dist = getprop("/sim/current-view/z-offset-min-m");
+              
+              distance = sgn * math.max(min_dist, math.abs(distance) / math.sqrt(2.0));
+              setprop("/sim/current-view/z-offset-m", distance);
+              
+              gui.popupTip(sprintf("%1.0d m", abs(getprop("/sim/current-view/z-offset-m"))));
+            </script>
+          </binding>
+        </button>
+        
+        <button n="4">
+          <binding n="1">
+            <condition>
+              <and>
+                <property>/sim/current-view/can-change-z-offset</property>
+                <not>
+                  <property>/devices/status/mice/mouse[0]/button[2]</property>
+                </not>
+                <not>
+                  <property>/sim/mouse/right-button-mode-cycle-enabled</property>
+                </not>
+              </and>
+            </condition>
+            <command>nasal</command>
+            <script>
+              var distance = getprop("/sim/current-view/z-offset-m");
+              var sgn = math.sgn(distance);
+              var max_dist = getprop("/sim/current-view/z-offset-max-m");
+              
+              distance = sgn * math.min(max_dist, math.abs(distance) * math.sqrt(2.0));
+              setprop("/sim/current-view/z-offset-m", distance);
+              
+              gui.popupTip(sprintf("%1.0d m", abs(getprop("/sim/current-view/z-offset-m"))));
+            </script>
+          </binding>
+        </button>
+      </mode>
+    </mouse>
+  </mice>
+  
+</PropertyList>
